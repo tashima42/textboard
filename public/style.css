@@ -1,0 +1,52 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.posts {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px;
+}
+
+.post-header {
+  display: inline-flex;
+  align-items: center;
+}
+
+.post-el {
+  margin-right: 10px;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center
+}
+
+.pagination-el {
+  margin-right: 10px;
+}
+
+input#show, input#hide {
+  display: none;
+}
+
+span#content {
+  display: none;
+}
+
+input#show:checked ~ span#content {
+  display: block;
+}
+
+input#hide:checked ~ span#content {
+  display:none;
+}
