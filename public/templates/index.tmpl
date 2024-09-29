@@ -39,7 +39,7 @@
       </form>
 
       <div class="posts">
-        {{ range $post := .Board.Posts }}
+        {{ range $post := .Posts }}
         <div id="{{ $post.Ref }}" class="post">
           <div class="post-header">
             <a href="/{{ $.Board.Ref }}/{{ $post.Ref }}" class="post-id post-el">#{{ $post.Ref }}</a>

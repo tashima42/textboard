@@ -31,8 +31,10 @@ func main() {
   e.Renderer = NewTemplate(tmpls)
   e.HTTPErrorHandler = customHTTPErrorHandler
 
-  e.GET("/:board", handler.BoardHandler)
-  e.GET("/:board/:ref", handler.PostHandler)
+  h := handler.NewHandler()
+
+  e.GET("/:board", h.BoardHandler)
+  e.GET("/:board/:ref", h.PostHandler)
 
   e.Logger.Fatal(e.Start(":3000"))
 }

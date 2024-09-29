@@ -4,24 +4,25 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/tashima42/textboard/model"
+	"github.com/tashima42/textboard/app"
 )
 
-func PostHandler (c echo.Context) error {
+func (h *handler) PostHandler (c echo.Context) error {
   board := c.Param("board")
   ref := c.Param("ref")
 
-  page := model.PostPage{
+  page := app.PostPage{
     Boards: []string{ "misc", "news", "discussion", "board" },
     Board: board,
-    Post: model.Post{
+    Post: app.Post{
       ID: 1,
+      BoardID: 1,
       Ref: ref,
       Title: "This is my post",
       Body: "Lorem Ipsum Dolor Sit Amet",
       Date: "26/09/2024 10:21",
     },
-    Replies: []model.Post{
+    Replies: []app.Post{
       {
         ID: 3,
         Ref: "3",
@@ -32,6 +33,6 @@ func PostHandler (c echo.Context) error {
     },
   }
 
-  return c.Render(http.StatusOK, "index", page)
+  return c.Render(http.StatusOK, "post", page)
 }
 
